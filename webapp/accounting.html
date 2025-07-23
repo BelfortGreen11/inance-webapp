@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бухгалтерское сопровождение</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; }
+        .container { max-width: 480px; margin: 0 auto; padding: 24px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-top: 32px; }
+        h1 { font-size: 1.5em; margin-bottom: 12px; }
+        p { color: #444; }
+        .btn { display: block; width: 100%; padding: 12px; background: #2a7cff; color: #fff; border: none; border-radius: 8px; font-size: 1em; margin-top: 24px; cursor: pointer; transition: background 0.2s; }
+        .btn:hover { background: #185ecf; }
+        .modal-bg { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.4); align-items: center; justify-content: center; z-index: 100; }
+        .modal { background: #fff; border-radius: 10px; padding: 24px; max-width: 340px; width: 90vw; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+        .modal input, .modal textarea { width: 100%; margin-bottom: 12px; padding: 8px; border-radius: 6px; border: 1px solid #ccc; font-size: 1em; }
+        .modal button { width: 100%; }
+        .close { float: right; font-size: 1.2em; cursor: pointer; color: #888; }
+        .success { color: #2a7cff; text-align: center; margin-top: 16px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Бухгалтерское сопровождение</h1>
+        <p>Полный спектр бухгалтерских услуг для вашего бизнеса: учёт, отчётность, консультации, сопровождение.</p>
+        <ul>
+            <li>Ведение бухгалтерии и налогового учёта</li>
+            <li>Подготовка и сдача отчётности</li>
+            <li>Консультации по оптимизации налогообложения</li>
+            <li>Восстановление учёта</li>
+        </ul>
+        <button class="btn" onclick="openModal()">Оставить заявку</button>
+        <div class="success" id="successMsg" style="display:none;">Спасибо! Ваша заявка отправлена.</div>
+    </div>
+    <div class="modal-bg" id="modalBg">
+        <div class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Заявка на услугу</h2>
+            <input type="text" id="name" placeholder="Ваше имя">
+            <input type="tel" id="phone" placeholder="Телефон">
+            <textarea id="comment" rows="3" placeholder="Комментарий (необязательно)"></textarea>
+            <button class="btn" onclick="sendRequest()">Отправить</button>
+        </div>
+    </div>
+    <script>
+        function openModal() {
+            document.getElementById('modalBg').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('modalBg').style.display = 'none';
+        }
+        function sendRequest() {
+            // Здесь можно добавить отправку данных на сервер
+            closeModal();
+            document.getElementById('successMsg').style.display = 'block';
+            setTimeout(()=>{ document.getElementById('successMsg').style.display = 'none'; }, 3000);
+        }
+    </script>
+</body>
+</html> 
